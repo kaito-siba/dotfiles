@@ -1,0 +1,99 @@
+# zsh
+export HISTFILE="$XDG_STATE_HOME"/zsh/history
+autoload -Uz compinit && compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
+
+# android
+export ANDROID_HOME="$XDG_DATA_HOME"/android
+alias adb='HOME="$XDG_DATA_HOME"/android adb'
+export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
+
+# cocoapods
+export CP_HOME_DIR="$XDG_DATA_HOME"/cocoapods
+
+# docker (disabled when using Docker Desktop for Mac)
+# export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
+
+# gem
+export GEM_HOME="$XDG_DATA_HOME"/gem
+export GEM_SPEC_CACHE="$XDG_CACHE_HOME"/gem
+
+# ipython
+export IPYTHONDIR="$XDG_CONFIG_HOME"/ipython
+
+# less
+export LESSHISTFILE="$XDG_STATE_HOME"/less/history
+
+# mysql
+export MYSQL_HISTFILE="$XDG_DATA_HOME"/mysql_history
+
+# terminfo
+export TERMINFO="$XDG_DATA_HOME"/terminfo
+export TERMINFO_DIRS="$XDG_DATA_HOME"/terminfo:/usr/share/terminfo
+
+# node_repl
+export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
+
+# PostgreSQL
+export PSQL_HISTORY="$XDG_DATA_HOME/psql_history"
+
+# sheldon
+eval "$(sheldon source)"
+
+# starship
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
+eval "$(starship init zsh)"
+
+# zsh-completions
+## 補完で小文字でも大文字にマッチさせる
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+## 補完候補を一覧表示したとき、Tabや矢印で選択できるようにする
+zstyle ':completion:*:default' menu select=1 
+
+#zsh-auto-suggestion
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
+
+# zeno
+source "${HOME}/.zeno/zeno.zsh"
+export ZENO_HOME=~/.config/zeno
+if [[ -n $ZENO_LOADED ]]; then
+  bindkey ' '  zeno-auto-snippet
+  bindkey '^m' zeno-auto-snippet-and-accept-line
+  bindkey '^i' zeno-completion
+  bindkey '^g' zeno-ghq-cd
+  bindkey '^r' zeno-history-selection
+  bindkey '^x' zeno-insert-snippet
+fi
+
+# Android
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+# 履歴から重複を削除
+setopt hist_ignore_dups
+
+# homebrewでインストールしたrubyを使う
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+
+# mise
+eval "$(/opt/homebrew/bin/mise activate zsh)"
+
+# open editor
+alias c="cursor ."
+alias v="nvim"
+
+# ghq
+function ghq-fzf() {
+  local src=$(ghq list | fzf --preview "ls -laTp $(ghq root)/{} | tail -n+4 | awk '{print \$9\"/\"\$6\"/\"\$7 \" \" \$10}'") 
+  if [ -n "$src" ]; then
+    BUFFER="cd $(ghq root)/$src"
+    zle accept-line
+  fi
+  zle -R -c
+}
+zle -N ghq-fzf
+bindkey '^]' ghq-fzf
+
+# zoxide
+# For completions to work, the above line must be added after compinit is called. You may have to rebuild your completions cache by running rm ~/.zcompdump*; compinit.
+eval "$(zoxide init zsh)"

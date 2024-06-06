@@ -1,0 +1,112 @@
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never
+  branchLogCmd: "git log --graph --color=always --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' {{branchName}} --"
+  allBranchesLogCmd: "git log --graph --color=always --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --all"
+  parseEmoji: true
+gui:
+  showIcons: true
+  sidePanelWidth: 0.3
+  theme:
+    selectedLineBgColor:
+      - underline
+    selectedRangeBgColor:
+      - underline
+refresher:
+  refreshInterval: 3
+os:
+  edit: "nvim"
+customCommands:
+  - key: "u"
+    context: "files"
+    description: "stash include untracked"
+    command: 'git stash save --include-untracked "{{index .PromptResponses 0}}" '
+    prompts:
+      - type: "input"
+        title: "Stash Message"
+        initialValue: "WIP"
+  # https://zenn.dev/glaucus03/articles/52886a4331d545
+  - key: "<c-c>"
+    context: "files"
+    description: "commit files with format"
+    prompts:
+      - type: "menu"
+        title: "Choise the emoji"
+        key: "Emoji"
+        options:
+          - name: ":wrench:"
+            description: "🔧 設定ファイルの追加または更新"
+            value: "🔧"
+          - name: ":fire:"
+            description: "🔥 コードやファイルの削除"
+            value: "🔥"
+          - name: ":necktie:"
+            description: "👔 ビジネスロジックの追加または更新"
+            value: "👔"
+          - name: ":adhesive_bandage:"
+            description: "🩹 非クリティカルな問題の単純な修正"
+            value: "🩹"
+          - name: ":goal_net:"
+            description: "🥅 エラーのキャッチ"
+            value: "🥅"
+          - name: ":alembic:"
+            description: "⚗️ 実験を実施"
+            value: "⚗️"
+          - name: ":speech_balloon:"
+            description: "💬 テキストやリテラルの追加または更新"
+            value: "💬"
+          - name: ":boom:"
+            description: "💥 互換性のない変更"
+            value: "💥"
+          - name: ":bento:"
+            description: "🍱 アセットの追加または更新"
+            value: "🍱"
+          - name: ":poop:"
+            description: "💩 改善が必要な悪いコードの追加"
+            value: "💩"
+          - name: ":recycle:"
+            description: "♻️ コードのリファクタリング"
+            value: "♻️"
+          - name: ":construction:"
+            description: "🚧 作業中"
+            value: "🚧"
+          - name: ":lock:"
+            description: "🔒️ セキュリティの修正"
+            value: "🔒️"
+          - name: ":bookmark:"
+            description: "🔖 リリース/バージョンタグ"
+            value: "🔖"
+          - name: ":rocket:"
+            description: "🚀 デプロイ"
+            value: "🚀"
+          - name: ":memo:"
+            description: "📝 ドキュメントの追加または更新"
+            value: "📝"
+          - name: ":art:"
+            description: "🎨 コードの構造やフォーマットの改善"
+            value: "🎨"
+          - name: ":zap:"
+            description: "⚡️ パフォーマンスの改善"
+            value: "⚡️"
+          - name: ":bug:"
+            description: "🐛 バグの修正"
+            value: "🐛"
+          - name: ":ambulance:"
+            description: "🚑️ 重大なホットフィックス"
+            value: "🚑️"
+          - name: ":sparkles:"
+            description: "✨ 新機能の追加"
+            value: "✨"
+          - name: "(empty)"
+            description: ""
+            value: ""
+      - type: "input"
+        title: "Enter the Message"
+        key: "Message"
+        initialValue: ""
+      - type: "confirm"
+        title: "Commit"
+        body: "Commit with the message '{{.Form.Emoji}} {{.Form.Message}} . Is this okay?"
+    command: 'bash -c ''message="{{.Form.Message}}"; emoji="{{.Form.Emoji}}"; commit_message="$emoji $message"; git commit -m "$commit_message"'''
+    loadingText: "Commiting..."

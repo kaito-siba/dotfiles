@@ -1,0 +1,73 @@
+# open a terminal
+# cmd - alt - space :open -n -a WezTerm
+
+# navigating spaces
+# cmd - 1 : yabai -m space --focus 1 && yabai -m window --focus "$(yabai -m query --windows --space | jq .[0].id)"
+# cmd - 2 : yabai -m space --focus 2 && yabai -m window --focus "$(yabai -m query --windows --space | jq .[0].id)"
+# cmd - 3 : yabai -m space --focus 3 && yabai -m window --focus "$(yabai -m query --windows --space | jq .[0].id)"
+# cmd - 4 : yabai -m space --focus 4 && yabai -m window --focus "$(yabai -m query --windows --space | jq .[0].id)"
+# cmd - 5 : yabai -m space --focus 5 && yabai -m window --focus "$(yabai -m query --windows --space | jq .[0].id)" 
+# cmd - 6 : yabai -m space --focus 6 && yabai -m window --focus "$(yabai -m query --windows --space | jq .[0].id)" 
+# cmd - 7 : yabai -m space --focus 7 && yabai -m window --focus "$(yabai -m query --windows --space | jq .[0].id)"
+# cmd - 8 : yabai -m space --focus 8 && yabai -m window --focus "$(yabai -m query --windows --space | jq .[0].id)" 
+# cmd - 9 : yabai -m space --focus 9
+# cmd - 0 : yabai -m space --focus 10
+
+# navigating displays
+alt - 1 : yabai -m display --focus 1
+alt - 2 : yabai -m display --focus 2
+alt - 3 : yabai -m display --focus 3
+
+# window focus navigation
+cmd - h : yabai -m window --focus west
+cmd - j : yabai -m window --focus south
+cmd - k : yabai -m window --focus north
+cmd - l : yabai -m window --focus east
+
+# old window focus navigation
+# cmd - j : yabai -m window --focus next || yabai -m window --focus first
+# cmd - k : yabai -m window --focus prev || yabai -m window --focus last
+
+# Resize windows
+alt - h : yabai -m window --resize left:-50:0 ; yabai -m window --resize right:-50:0
+alt - j : yabai -m window --resize bottom:0:50 ; yabai -m window --resize top:0:50
+alt - k : yabai -m window --resize top:0:-50 ; yabai -m window --resize bottom:0:-50
+alt - l : yabai -m window --resize right:50:0 ; yabai -m window --resize left:50:0
+
+# moving windows
+cmd + shift - k : yabai -m window --swap north
+cmd + shift - l : yabai -m window --swap east
+cmd + shift - j : yabai -m window --swap south
+cmd + shift - h : yabai -m window --swap west
+
+# throw focused window to space // might potentially change this to alt at some point
+cmd + alt - 1 : yabai -m window --space 1; yabai -m space --focus 1
+cmd + alt - 2 : yabai -m window --space 2; yabai -m space --focus 2
+cmd + alt - 3 : yabai -m window --space 3; yabai -m space --focus 3
+cmd + alt - 4 : yabai -m window --space 4; yabai -m space --focus 4
+cmd + alt - 5 : yabai -m window --space 5; yabai -m space --focus 5
+cmd + alt - 6 : yabai -m window --space 6; yabai -m space --focus 6
+cmd + alt - 7 : yabai -m window --space 7; yabai -m space --focus 7
+cmd + alt - 8 : yabai -m window --space 8; yabai -m space --focus 8
+cmd + alt - 9 : yabai -m window --space 9; yabai -m space --focus 9
+cmd + alt - 0 : yabai -m window --space 10; yabai -m space --focus 10
+
+# throw focused window to display
+alt + shift - 1 : yabai -m window --display 1; yabai -m display --focus 1
+alt + shift - 2 : yabai -m window --display 2; yabai -m display --focus 2
+
+# make a window fullscreen
+alt - f : yabai -m window --toggle zoom-fullscreen
+
+# rotate tree
+alt - r : yabai -m space --rotate 90
+
+# toggle float
+alt - t : yabai -m window --toggle float && yabai -m window --grid 4:4:1:1:2:2
+
+# stack window
+alt - s : yabai -m window --stack next
+
+# focus stack
+alt - n : yabai -m window --focus stack.next
+alt - p : yabai -m window --focus stack.prev
