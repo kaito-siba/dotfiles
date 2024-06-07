@@ -1,11 +1,16 @@
 # zsh
 export HISTFILE="$XDG_STATE_HOME"/zsh/history
 autoload -Uz compinit && compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
+export HISTSIZE=10000
+export SAVEHIST=10000
+setopt appendhistory
 
 # android
 export ANDROID_HOME="$XDG_DATA_HOME"/android
 alias adb='HOME="$XDG_DATA_HOME"/android adb'
 export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # cocoapods
 export CP_HOME_DIR="$XDG_DATA_HOME"/cocoapods
@@ -64,19 +69,40 @@ if [[ -n $ZENO_LOADED ]]; then
   bindkey '^x' zeno-insert-snippet
 fi
 
-# Android
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/platform-tools
+{{- if (and (eq .chezmoi.hostname "rkv-win") (eq .chezmoi.os "linux")) }}
+
+# brew root
+export BREW_ROOT="/home/linuxbrew/.linuxbrew"
+# nvcc
+export PATH="/usr/local/cuda/bin:$PATH"
+export LD_LIBRARY_PATH="/usr/local/cuda/lib64:$LD_LIBRARY_PATH"
+export LD_LIBRARY_PATH="/usr/lib/wsl/lib:$LD_LIBRARY_PATH"
+export LD_LIBRARY_PATH=""$HOME"/repos/Style-Bert-VITS2/.direnv/python-3.11/lib/python3.11/site-packages/torch/lib:$LD_LIBRARY_PATH"
+export LD_LIBRARY_PATH=""$HOME"/repos/Style-Bert-VITS2/.venv/lib/python3.11/site-packages/torch/lib:$LD_LIBRARY_PATH"
+
+# Library PATH when SSH
+export PATH="/usr/lib/wsl/lib:$PATH"
+
+# pbcopy
+alias pbcopy='xsel --clipboard --input'
+
+{{- end }}
+
+
+{{- if eq .chezmoi.os "darwin" }}
+
+export BREW_ROOT="/opt/homebrew"
+
+{{- end }}
 
 # 履歴から重複を削除
 setopt hist_ignore_dups
 
 # homebrewでインストールしたrubyを使う
-export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+export PATH="$BREW_ROOT/opt/ruby/bin:$PATH"
 
 # mise
-eval "$(/opt/homebrew/bin/mise activate zsh)"
+eval "$($BREW_ROOT/bin/mise activate zsh)"
 
 # open editor
 alias c="cursor ."
