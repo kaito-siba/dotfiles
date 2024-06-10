@@ -6,11 +6,12 @@ export SAVEHIST=10000
 setopt appendhistory
 
 # android
-export ANDROID_HOME="$XDG_DATA_HOME"/android
-alias adb='HOME="$XDG_DATA_HOME"/android adb'
-export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
+export ANDROID_HOME=/Users/$(whoami)/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+export ANDROID_USER_HOME="$XDG_DATA_HOME"/android
+alias adb='HOME="$XDG_DATA_HOME"/android adb'
+export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 
 # cocoapods
 export CP_HOME_DIR="$XDG_DATA_HOME"/cocoapods
