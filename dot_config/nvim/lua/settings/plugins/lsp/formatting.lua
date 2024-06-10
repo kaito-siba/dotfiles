@@ -20,7 +20,7 @@ return {
 				liquid = { "prettier" },
 				lua = { "stylua" },
 				python = { "isort", "black" },
-				php = { "php" },
+				php = { "php-cs-fixer" },
 			},
 			format_on_save = {
 				lsp_fallback = true,
@@ -32,8 +32,6 @@ return {
 					command = "php-cs-fixer",
 					args = {
 						"fix",
-						"--rules=@PSR12",
-						"--allow-risky=yes",
 						"$FILENAME",
 					},
 					stdin = false,
