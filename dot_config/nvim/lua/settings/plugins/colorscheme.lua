@@ -1,6 +1,7 @@
 return {
-	"savq/melange-nvim",
+	"mcchrish/zenbones.nvim",
+	dependencies = { "rktjmp/lush.nvim" },
 	config = function()
-		vim.cmd("colorscheme melange")
+		vim.cmd("colorscheme kanagawabones")
 	end,
 }
