@@ -48,7 +48,7 @@ return {
 			extensions = {
 				project = {
 					base_dirs = {
-						"~/src",
+						-- "~/src",
 						-- "~/proj",
 						"~/.config",
 						-- "~/dotfiles",
