@@ -10,7 +10,8 @@ return {
 		lualine.setup({
 			options = {
 				disabled_filetypes = { "NvimTree" },
-				theme = my_theme,
+				-- theme = my_theme,
+				theme = "auto",
 			},
 			sections = {
 				lualine_c = {},
