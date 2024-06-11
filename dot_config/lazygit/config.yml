@@ -16,7 +16,7 @@ gui:
 refresher:
   refreshInterval: 3
 os:
-  edit: "nvim"
+  edit: "nvim {{filename}}"
 customCommands:
   - key: "u"
     context: "files"
