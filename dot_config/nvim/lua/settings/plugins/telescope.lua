@@ -8,6 +8,7 @@ return {
 		"nvim-tree/nvim-web-devicons",
 		"folke/trouble.nvim",
 		"folke/todo-comments.nvim",
+		"CopilotC-Nvim/CopilotChat.nvim",
 	},
 	config = function()
 		local telescope = require("telescope")
@@ -24,6 +25,11 @@ return {
 				trouble.toggle("quickfix")
 			end,
 		})
+
+		function DisplayActionPrompts()
+			local copilot_actions = require("CopilotChat.actions")
+			require("CopilotChat.integrations.telescope").pick(copilot_actions.prompt_actions())
+		end
 
 		telescope.setup({
 			defaults = {
@@ -73,5 +79,6 @@ return {
 		keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", { silent = true })
 		keymap.set("n", "<leader>fp", "<cmd>Telescope project<CR>", { silent = true })
 		keymap.set("n", "/", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { silent = true })
+		keymap.set({ "n", "v" }, "<leader>fc", "<cmd>lua DisplayActionPrompts()<CR>", { noremap = true, silent = true })
 	end,
 }
