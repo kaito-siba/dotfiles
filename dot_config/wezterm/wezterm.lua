@@ -7,7 +7,7 @@ config.font_size = 16.0
 config.use_ime = true
 
 config.color_scheme = "kanagawabones"
-config.window_background_opacity = 0.85
+config.window_background_opacity = 0.90
 
 config.hide_tab_bar_if_only_one_tab = true
 
