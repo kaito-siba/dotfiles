@@ -43,6 +43,7 @@ return {
 				"black",
 				"pylint",
 				"eslint_d",
+				"phpcs",
 			},
 		})
 	end,
