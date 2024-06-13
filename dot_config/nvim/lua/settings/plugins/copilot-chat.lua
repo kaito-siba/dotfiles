@@ -30,6 +30,56 @@ return {
 						prompt = "ファイル内の次のような診断上の問題を解決してください：",
 						selection = select.diagnostics,
 					},
+					Commit = {
+						prompt = "コミットメッセージをcommitizenの規約に従って書いてください。タイトルは最大50文字とし、メッセージは72文字で改行してください。メッセージ全体を言語指定`gitcommit`のコードブロックで囲んでください。",
+						selection = select.gitdiff,
+					},
+					CommitStaged = {
+						prompt = "変更内容のコミットメッセージをcommitizenの規約に従って書いてください。タイトルは最大50文字とし、メッセージは72文字で改行してください。メッセージ全体を言語指定`gitcommit`のコードブロックで囲んでください。",
+						selection = function(source)
+							return select.gitdiff(source, true)
+						end,
+					},
+					Review = {
+						prompt = "/COPILOT_REVIEW 選択したコードをレビューしてください。",
+						callback = function(response, source)
+							local ns = vim.api.nvim_create_namespace("copilot_review")
+							local diagnostics = {}
+							for line in response:gmatch("[^\r\n]+") do
+								if line:find("^line=") then
+									local start_line = nil
+									local end_line = nil
+									local message = nil
+									local single_match, message_match = line:match("^line=(%d+): (.*)$")
+									if not single_match then
+										local start_match, end_match, m_message_match =
+											line:match("^line=(%d+)-(%d+): (.*)$")
+										if start_match and end_match then
+											start_line = tonumber(start_match)
+											end_line = tonumber(end_match)
+											message = m_message_match
+										end
+									else
+										start_line = tonumber(single_match)
+										end_line = start_line
+										message = message_match
+									end
+
+									if start_line and end_line then
+										table.insert(diagnostics, {
+											lnum = start_line - 1,
+											end_lnum = end_line - 1,
+											col = 0,
+											message = message,
+											severity = vim.diagnostic.severity.WARN,
+											source = "Copilot Review",
+										})
+									end
+								end
+							end
+							vim.diagnostic.set(ns, source.bufnr, diagnostics)
+						end,
+					},
 				},
 			})
 
