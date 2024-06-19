@@ -14,6 +14,7 @@ return {
 					vim.keymap.set(mode, l, r, opts)
 				end
 
+				map("n", "<leader>hs", gs.stage_hunk)
 				map("n", "<leader>hr", gs.reset_hunk)
 				map("n", "<leader>hR", gs.reset_buffer)
 				map("n", "<leader>ht", gs.toggle_deleted)
