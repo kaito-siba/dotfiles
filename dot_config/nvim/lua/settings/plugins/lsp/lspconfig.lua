@@ -91,7 +91,7 @@ return {
 					capabilities = capabilities,
 					settings = {
 						python = {
-							vnevPath = ".",
+							venvPath = ".",
 							pythonPath = "./.venv/bin/python",
 						},
 					},
