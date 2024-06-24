@@ -32,7 +32,7 @@ return {
 				"prismals",
 				"pyright",
 				"intelephense",
-				"typos-lsp",
+				"typos_lsp",
 			},
 		})
 
