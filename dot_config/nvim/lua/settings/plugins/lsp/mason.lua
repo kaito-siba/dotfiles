@@ -33,6 +33,7 @@ return {
 				"pyright",
 				"intelephense",
 				"typos_lsp",
+				"denols",
 			},
 		})
 

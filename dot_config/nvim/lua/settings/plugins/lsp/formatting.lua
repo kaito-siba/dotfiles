@@ -8,10 +8,17 @@ return {
 		local conform = require("conform")
 		local notify = require("notify")
 
+		conform.formatters.deno = {
+			command = "deno_fmt",
+			condition = function()
+				return vim.fn.filereadable("deno.json") == 1
+			end,
+		}
+
 		conform.setup({
 			formatters_by_ft = {
-				javascript = { "prettier" },
-				typescript = { "prettier" },
+				javascript = { { "deno_fmt", "prettier" } },
+				typescript = { { "deno_fmt", "prettier" } },
 				javascriptreact = { "prettier" },
 				typescriptreact = { "prettier" },
 				svelte = { "prettier" },
@@ -34,7 +41,7 @@ return {
 				return { timeout_ms = 500, lsp_fallback = true }
 			end,
 			formatters = {
-				["php"] = {
+				php = {
 					command = "php-cs-fixer",
 					args = {
 						"fix",

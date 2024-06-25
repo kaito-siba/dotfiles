@@ -14,9 +14,15 @@ return {
 			"-",
 		}
 
+		if vim.fn.filereadable("deno.json") == 1 then
+			lint.linters.javaScript = { "deno" }
+			lint.linters.typeScript = { "deno" }
+		else
+			lint.linters.javaScript = { "eslint_d" }
+			lint.linters.typeScript = { "eslint_d" }
+		end
+
 		lint.linters_by_ft = {
-			javascript = { "eslint_d" },
-			typescript = { "eslint_d" },
 			javascriptreact = { "eslint_d" },
 			typescriptreact = { "eslint_d" },
 			svelte = { "eslint_d" },

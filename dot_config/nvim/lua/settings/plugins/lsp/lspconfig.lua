@@ -97,6 +97,34 @@ return {
 					},
 				})
 			end,
+			-- aboid to attach both tsserver and denols
+			-- https://docs.deno.com/runtime/manual/getting_started/setup_your_environment#neovim-06-using-the-built-in-language-server
+			["denols"] = function()
+				lspconfig.denols.setup({
+					capabilities = capabilities,
+					root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+					init_options = {
+						lint = true,
+						unstable = true,
+						suggest = {
+							imports = {
+								hosts = {
+									["https://deno.land"] = true,
+									["https://cdn.nest.land"] = true,
+									["https://crux.land"] = true,
+								},
+							},
+						},
+					},
+				})
+			end,
+			["tsserver"] = function()
+				lspconfig.tsserver.setup({
+					capabilities = capabilities,
+					root_dir = lspconfig.util.root_pattern("package.json"),
+					single_file_support = false,
+				})
+			end,
 		})
 	end,
 }
