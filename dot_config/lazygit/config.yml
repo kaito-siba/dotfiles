@@ -32,7 +32,7 @@ customCommands:
     description: "commit files with format"
     prompts:
       - type: "menu"
-        title: "Choise the emoji"
+        title: "Choose the emoji"
         key: "Emoji"
         options:
           - name: ":wrench:"
@@ -109,4 +109,4 @@ customCommands:
         title: "Commit"
         body: "Commit with the message '{{.Form.Emoji}} {{.Form.Message}} . Is this okay?"
     command: 'bash -c ''message="{{.Form.Message}}"; emoji="{{.Form.Emoji}}"; commit_message="$emoji $message"; git commit -m "$commit_message"'''
-    loadingText: "Commiting..."
+    loadingText: "Committing..."
