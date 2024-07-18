@@ -18,13 +18,13 @@ return {
 			lint.linters.javaScript = { "deno" }
 			lint.linters.typeScript = { "deno" }
 		else
-			lint.linters.javaScript = { "eslint_d" }
-			lint.linters.typeScript = { "eslint_d" }
+			lint.linters.javaScript = { "eslint" }
+			lint.linters.typeScript = { "eslint" }
 		end
 
 		lint.linters_by_ft = {
-			javascriptreact = { "eslint_d" },
-			typescriptreact = { "eslint_d" },
+			javascriptreact = { "eslint" },
+			typescriptreact = { "eslint" },
 			svelte = { "eslint_d" },
 			python = { "pylint" },
 			php = { "phpcs" },
