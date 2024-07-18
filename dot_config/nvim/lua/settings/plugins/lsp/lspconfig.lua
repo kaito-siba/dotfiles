@@ -40,12 +40,6 @@ return {
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
 
-		lspconfig["typos_lsp"].setup({
-			init_options = {
-				config = "$XDG_CONFIG_HOME/nvim/spell/typos.toml",
-			},
-		})
-
 		mason_lspconfig.setup_handlers({
 			-- default handler for installed servers
 			function(server_name)
@@ -123,6 +117,14 @@ return {
 					capabilities = capabilities,
 					root_dir = lspconfig.util.root_pattern("package.json"),
 					single_file_support = false,
+				})
+			end,
+			["typos_lsp"] = function()
+				lspconfig.typos_lsp.setup({
+					capabilities = capabilities,
+					init_options = {
+						config = "$XDG_CONFIG_HOME/nvim/spell/typos.toml",
+					},
 				})
 			end,
 		})
