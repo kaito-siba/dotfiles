@@ -119,14 +119,14 @@ return {
 					single_file_support = false,
 				})
 			end,
-			["typos_lsp"] = function()
-				lspconfig.typos_lsp.setup({
-					capabilities = capabilities,
-					init_options = {
-						config = "$XDG_CONFIG_HOME/nvim/spell/typos.toml",
-					},
-				})
-			end,
+			-- ["typos_lsp"] = function()
+			-- 	lspconfig.typos_lsp.setup({
+			-- 		capabilities = capabilities,
+			-- 		init_options = {
+			-- 			config = "$XDG_CONFIG_HOME/nvim/spell/typos.toml",
+			-- 		},
+			-- 	})
+			-- end,
 		})
 	end,
 }
