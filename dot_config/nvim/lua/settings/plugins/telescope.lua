@@ -78,7 +78,7 @@ return {
 		keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { silent = true })
 		keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", { silent = true })
 		keymap.set("n", "<leader>fp", "<cmd>Telescope project<CR>", { silent = true })
-		keymap.set("n", "/", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { silent = true })
+		keymap.set("n", "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { silent = true })
 		keymap.set({ "n", "v" }, "<leader>fc", "<cmd>lua DisplayActionPrompts()<CR>", { noremap = true, silent = true })
 	end,
 }
