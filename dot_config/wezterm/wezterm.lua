@@ -6,8 +6,9 @@ config.font_size = 16.0
 
 config.use_ime = true
 
-config.color_scheme = "kanagawabones"
+config.color_scheme = "rose-pine-moon"
 config.window_background_opacity = 0.90
+config.macos_window_background_blur = 20
 
 config.hide_tab_bar_if_only_one_tab = true
 
