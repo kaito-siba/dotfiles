@@ -11,7 +11,6 @@ return {
 			vim.keymap.set("n", "gf", "<cmd>Lspsaga finder def+ref ++layout<CR>", opts),
 			vim.keymap.set("n", "gh", "<cmd>Lspsaga hover_doc<CR>", opts),
 			vim.keymap.set("n", "go", "<cmd>Lspsaga outline<CR>", opts),
-			vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts),
 		})
 	end,
 }
