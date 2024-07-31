@@ -1,6 +1,5 @@
 # zsh
 export HISTFILE="$XDG_STATE_HOME"/zsh/history
-autoload -Uz compinit && compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
 export HISTSIZE=10000
 export SAVEHIST=10000
 setopt appendhistory
@@ -131,3 +130,8 @@ bindkey '^]' ghq-fzf
 # zoxide
 # For completions to work, the above line must be added after compinit is called. You may have to rebuild your completions cache by running rm ~/.zcompdump*; compinit.
 eval "$(zoxide init zsh)"
+
+# uncomment to enable zsh profiling
+# if (which zprof > /dev/null); then
+#   zprof | less
+# fi
