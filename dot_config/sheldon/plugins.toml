@@ -42,6 +42,3 @@ post = "ZSH_AUTOSUGGEST_CLEAR_WIDGETS=(zeno-auto-snippet-and-accept-line $ZSH_AU
 github = "yuki-yano/zeno.zsh"
 apply = ["source"]
 
-[plugins.asdf]
-github = "asdf-vm/asdf"
-apply = ["source"]
