@@ -5,6 +5,12 @@ export HISTSIZE=10000
 export SAVEHIST=10000
 setopt appendhistory
 
+# Library Path
+export PATH="$HOME/.local/bin:$PATH"
+
+# Aider
+export AIDER_ENV_FILE="$XDG_CONFIG_HOME"/aider/.env
+
 # android
 export ANDROID_HOME=/Users/$(whoami)/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
