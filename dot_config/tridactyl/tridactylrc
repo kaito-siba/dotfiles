@@ -1,0 +1,30 @@
+# https://github.com/lambdasawa/dotfiles/blob/main/tridactyl/tridactylrc
+
+sanitise
+
+set hintchars jfkdhglsamvurceixwozqp
+set smoothscroll true
+set findcase smart
+
+colors dracura
+set theme dracura
+
+# https://github.com/tridactyl/tridactyl/blob/1.24.0/src/lib/config.ts
+bind I mode ignore
+bind j scrollline 10
+bind k scrollline -10
+bind G scrollto 100
+bind <C-t> tabnew
+bind <C-k> tabnext -1
+bind <C-j> tabnext +1
+bind <Space>r source
+bind <Space>m clipboard yankmd
+bind <Space>d tabduplicate
+bind <Space>c fillcmdline recontain
+
+bind / fillcmdline find
+bind n findnext 1
+bind N findnext -1
+bind ,<Space> nohlsearch
+
+js alert('tri ok')
