@@ -31,8 +31,7 @@ return {
 				"emmet_ls",
 				"prismals",
 				"pyright",
-				"intelephense",
-				"typos_lsp",
+				"phpactor",
 				"denols",
 			},
 		})
@@ -45,7 +44,8 @@ return {
 				"black",
 				"pylint",
 				"eslint_d",
-				"phpcs",
+				"phpstan",
+				"php-cs-fixer",
 			},
 		})
 	end,

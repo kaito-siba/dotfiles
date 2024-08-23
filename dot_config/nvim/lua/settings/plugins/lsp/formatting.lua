@@ -31,7 +31,7 @@ return {
 				liquid = { "prettier" },
 				lua = { "stylua" },
 				python = { "isort", "black" },
-				php = { "php-cs-fixer" },
+				php = { "php_cs_fixer" },
 			},
 			format_on_save = function(bufnr)
 				-- Disable with a global or buffer-local variable
@@ -40,16 +40,6 @@ return {
 				end
 				return { timeout_ms = 500, lsp_fallback = true }
 			end,
-			formatters = {
-				php = {
-					command = "php-cs-fixer",
-					args = {
-						"fix",
-						"$FILENAME",
-					},
-					stdin = false,
-				},
-			},
 			notify_on_error = true,
 			log_level = vim.log.levels.INFO,
 		})

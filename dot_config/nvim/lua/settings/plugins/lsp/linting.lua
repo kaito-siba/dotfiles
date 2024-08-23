@@ -4,16 +4,6 @@ return {
 	config = function()
 		local lint = require("lint")
 
-		local phpcs = require("lint").linters.phpcs
-
-		phpcs.args = {
-			"-q",
-			-- <- Add a new parameter here
-			"--standard=PSR12",
-			"--report=json",
-			"-",
-		}
-
 		if vim.fn.filereadable("deno.json") == 1 then
 			lint.linters.javaScript = { "deno" }
 			lint.linters.typeScript = { "deno" }
@@ -27,7 +17,7 @@ return {
 			typescriptreact = { "eslint" },
 			svelte = { "eslint_d" },
 			python = { "pylint" },
-			php = { "phpcs" },
+			php = { "phpstan" },
 		}
 
 		lint.linters.pylint.cmd = "python"
