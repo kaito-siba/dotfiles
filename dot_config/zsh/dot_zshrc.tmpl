@@ -127,6 +127,10 @@ function ghq-fzf() {
 zle -N ghq-fzf
 bindkey '^]' ghq-fzf
 
+# blockwise cursor movement
+bindkey '^[[1;3D' backward-word  # alt-left
+bindkey '^[[1;3C' forward-word   # alt-right
+
 # zoxide
 # For completions to work, the above line must be added after compinit is called. You may have to rebuild your completions cache by running rm ~/.zcompdump*; compinit.
 eval "$(zoxide init zsh)"
