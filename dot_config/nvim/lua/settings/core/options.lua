@@ -36,3 +36,6 @@ opt.conceallevel = 1
 
 -- scroll
 opt.scrolloff = 10
+
+-- disable swap file
+opt.swapfile = false
