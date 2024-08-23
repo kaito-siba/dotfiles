@@ -36,6 +36,8 @@ return {
 				"vimdoc",
 				"c",
 				"python",
+				"http",
+				"graphql",
 			},
 			incremental_selection = {
 				enable = true,
