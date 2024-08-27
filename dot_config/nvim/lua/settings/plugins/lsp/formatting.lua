@@ -8,17 +8,18 @@ return {
 		local conform = require("conform")
 		local notify = require("notify")
 
-		conform.formatters.deno = {
-			command = "deno_fmt",
-			condition = function()
-				return vim.fn.filereadable("deno.json") == 1
-			end,
-		}
-
 		conform.setup({
+			formatters = {
+				deno_fmt = {
+					command = "deno",
+					condition = function()
+						return vim.fn.filereadable("deno.json") == 1
+					end,
+				},
+			},
 			formatters_by_ft = {
-				javascript = { { "deno_fmt", "prettier" } },
-				typescript = { { "deno_fmt", "prettier" } },
+				javascript = { "deno_fmt", "prettier", stop_after_first = true },
+				typescript = { "deno_fmt", "prettier", stop_after_first = true },
 				javascriptreact = { "prettier" },
 				typescriptreact = { "prettier" },
 				svelte = { "prettier" },
