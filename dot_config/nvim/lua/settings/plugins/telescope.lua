@@ -9,6 +9,7 @@ return {
 		"folke/trouble.nvim",
 		"folke/todo-comments.nvim",
 		"CopilotC-Nvim/CopilotChat.nvim",
+		"mollerhoj/telescope-recent-files.nvim",
 	},
 	config = function()
 		local telescope = require("telescope")
@@ -66,19 +67,27 @@ return {
 					sync_with_nvim_tree = true,
 				},
 			},
+			pickers = {
+				find_files = {
+					hidden = true,
+				},
+			},
 		})
 
 		-- telescope.load_extension("fzf")
 		telescope.load_extension("project")
+		telescope.load_extension("recent-files")
 
 		-- set keymaps
 		local keymap = vim.keymap -- for conciseness
 
 		keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { silent = true })
-		keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { silent = true })
+		keymap.set("n", "<leader>ff", function()
+			require("telescope").extensions["recent-files"].recent_files({})
+		end, { silent = true })
 		keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", { silent = true })
 		keymap.set("n", "<leader>fp", "<cmd>Telescope project<CR>", { silent = true })
-		keymap.set("n", "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { silent = true })
+		keymap.set("n", "/", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { silent = true })
 		keymap.set({ "n", "v" }, "<leader>fc", "<cmd>lua DisplayActionPrompts()<CR>", { noremap = true, silent = true })
 	end,
 }
