@@ -1,5 +1,6 @@
 return {
 	"rachartier/tiny-code-action.nvim",
+	commit = "1f2dcff",
 	dependencies = {
 		{ "nvim-lua/plenary.nvim" },
 		{ "nvim-telescope/telescope.nvim" },
