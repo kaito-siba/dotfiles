@@ -28,6 +28,7 @@ config.scrollback_lines = 99999
 -- }
 
 config.window_decorations = "RESIZE"
+config.show_new_tab_button_in_tab_bar = false
 
 -- 最初からフルスクリーンで起動
 local mux = wezterm.mux
