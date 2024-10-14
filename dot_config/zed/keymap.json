@@ -1,0 +1,80 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-ctrl-/": "workspace::ToggleBottomDock"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert && !VimWaiting && !Menu",
+    "bindings": {
+      "j j": ["workspace::SendKeystrokes", "escape"],
+      "up": "editor::ShowCompletions",
+      "down": "editor::ShowCompletions"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal && !VimWaiting && !Menu",
+    "bindings": {
+      "space h r": "editor::RevertSelectedHunks",
+      "space h t": "editor::ToggleHunkDiff",
+      "space h T": "editor::ExpandAllHunkDiffs",
+      "space h n": "editor::GoToHunk",
+      "space h N": "editor::GoToPrevHunk"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == visual && !VimWaiting && !VimObject",
+    "bindings": {
+      "shift-s": [
+        "vim::PushOperator",
+        {
+          "AddSurrounds": {}
+        }
+      ]
+    }
+  },
+  {
+    "context": "ProjectPanel || (Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !Menu)",
+    "bindings": {
+      "space g": ["task::Spawn", { "task_name": "Lazygit" }],
+      "space f f": "file_finder::Toggle",
+      "space f g": ["task::Spawn", { "task_name": "search:project" }],
+      "space c a": "editor::ToggleCodeActions",
+      "space x x": "diagnostics::Deploy",
+      "space e": "workspace::ToggleLeftDock",
+      "g f": "editor::FindAllReferences"
+    }
+  },
+  {
+    "context": "Editor && VimControl && !VimWaiting && !menu",
+    "bindings": {
+      "enter": "editor::SelectLargerSyntaxNode",
+      "shift-enter": "editor::SelectSmallerSyntaxNode"
+    }
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      // ctrl-w l でエディタに戻りたい
+      "a": "project_panel::NewFile",
+      "A": "project_panel::NewDirectory",
+      "r": "project_panel::Rename",
+      "d": "project_panel::Trash",
+      "y": "project_panel::CopyRelativePath",
+      "Y": "project_panel::CopyPath",
+      "o": "project_panel::RevealInFileManager"
+    }
+  },
+  {
+    "context": "AssistantPanel",
+    "bindings": {}
+  }
+]
