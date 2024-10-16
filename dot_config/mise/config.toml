@@ -2,6 +2,7 @@
 node = "21.4.0"
 python = "latest"
 ruff = "latest"
+ripgrep = "latest"
 
 [settings]
 experimental = true
