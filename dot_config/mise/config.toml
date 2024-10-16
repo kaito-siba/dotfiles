@@ -1,6 +1,7 @@
 [tools]
 node = "21.4.0"
 python = "latest"
+ruff = "latest"
 
 [settings]
 experimental = true
