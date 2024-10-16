@@ -91,7 +91,7 @@ return {
 					},
 				})
 			end,
-			-- aboid to attach both tsserver and denols
+			-- aboid to attach both ts_ls and denols
 			-- https://docs.deno.com/runtime/manual/getting_started/setup_your_environment#neovim-06-using-the-built-in-language-server
 			["denols"] = function()
 				lspconfig.denols.setup({
@@ -112,8 +112,8 @@ return {
 					},
 				})
 			end,
-			["tsserver"] = function()
-				lspconfig.tsserver.setup({
+			["ts_ls"] = function()
+				lspconfig.ts_ls.setup({
 					capabilities = capabilities,
 					root_dir = lspconfig.util.root_pattern("package.json"),
 					single_file_support = false,
