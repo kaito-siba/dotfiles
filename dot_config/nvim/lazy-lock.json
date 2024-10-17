@@ -19,6 +19,10 @@
     "branch": "main",
     "commit": "9d02776ed42874d37869dc683396234e3724b52d"
   },
+  "catppuccin": {
+    "branch": "main",
+    "commit": "7be452ee067978cdc8b2c5f3411f0c71ffa612b9"
+  },
   "cmp-buffer": {
     "branch": "main",
     "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa"
@@ -206,10 +210,6 @@
   "plenary.nvim": {
     "branch": "master",
     "commit": "2d9b06177a975543726ce5c73fca176cedbffe9d"
-  },
-  "rose-pine": {
-    "branch": "main",
-    "commit": "d396005db5bbd1d4ec7772a7c96c96f4c4802328"
   },
   "scrollEOF.nvim": {
     "branch": "master",
