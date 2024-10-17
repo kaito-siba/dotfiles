@@ -130,6 +130,11 @@ bindkey '^]' ghq-fzf
 bindkey '^[[1;3D' backward-word  # alt-left
 bindkey '^[[1;3C' forward-word   # alt-right
 
+# iconv
+export PATH="/opt/homebrew/opt/libiconv/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/libiconv/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/libiconv/include"
+
 # uv
 source $HOME/.cargo/env
 
