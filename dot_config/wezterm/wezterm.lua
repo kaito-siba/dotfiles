@@ -1,7 +1,10 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
-config.font = wezterm.font("UDEV Gothic 35JPDOC")
+config.font = wezterm.font_with_fallback({
+	{ family = "UDEV Gothic 35NFLG" },
+	{ family = "UDEV Gothic 35NFLG", assume_emoji_presentation = true },
+})
 config.font_size = 16.0
 
 config.use_ime = true
@@ -31,8 +34,8 @@ config.window_decorations = "RESIZE"
 config.show_new_tab_button_in_tab_bar = false
 
 config.window_frame = {
-	font = wezterm.font("UDEV Gothic 35JPDOC", { weight = "Bold" }),
-	font_size = 12,
+	font = wezterm.font("UDEV Gothic 35NFLG", { weight = "Bold" }),
+	font_size = 14,
 	inactive_titlebar_bg = "none",
 	active_titlebar_bg = "none",
 }
