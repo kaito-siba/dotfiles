@@ -1,0 +1,3 @@
+exec:
+  open: [jpg, jpeg, png, gif, svg]
+  zathura: [pdf]

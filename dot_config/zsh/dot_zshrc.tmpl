@@ -58,7 +58,7 @@ eval "$(starship init zsh)"
 ## 補完で小文字でも大文字にマッチさせる
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 ## 補完候補を一覧表示したとき、Tabや矢印で選択できるようにする
-zstyle ':completion:*:default' menu select=1 
+zstyle ':completion:*:default' menu select=1
 
 #zsh-auto-suggestion
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
@@ -116,7 +116,7 @@ alias v="nvim"
 
 # ghq
 function ghq-fzf() {
-  local src=$(ghq list | fzf --preview "ls -laTp $(ghq root)/{} | tail -n+4 | awk '{print \$9\"/\"\$6\"/\"\$7 \" \" \$10}'") 
+  local src=$(ghq list | fzf --preview "ls -laTp $(ghq root)/{} | tail -n+4 | awk '{print \$9\"/\"\$6\"/\"\$7 \" \" \$10}'")
   if [ -n "$src" ]; then
     BUFFER="cd $(ghq root)/$src"
     zle accept-line
@@ -144,6 +144,10 @@ export PATH=$PATH:$HOME/.spicetify
 # default editor
 export EDITOR=zed
 
+# felix
+export PATH=$PATH:$XDG_DATA_HOME/mise/installs/rust/latest/bin/fx
+source <(command fx --init)
+
 # zoxide
 # For completions to work, the above line must be added after compinit is called. You may have to rebuild your completions cache by running rm ~/.zcompdump*; compinit.
 eval "$(zoxide init zsh)"
@@ -152,4 +156,3 @@ eval "$(zoxide init zsh)"
 # if (which zprof > /dev/null); then
 #   zprof | less
 # fi
-
