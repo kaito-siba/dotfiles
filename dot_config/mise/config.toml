@@ -4,6 +4,7 @@ python = "latest"
 ruff = "latest"
 ripgrep = "latest"
 pipx = "latest"
+rust = "latest"
 
 [settings]
 experimental = true
