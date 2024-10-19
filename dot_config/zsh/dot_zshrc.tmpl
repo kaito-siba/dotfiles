@@ -1,8 +1,12 @@
+# sheldon
+eval "$(sheldon source)"
+
 # zsh
 export HISTFILE="$XDG_STATE_HOME"/zsh/history
 export HISTSIZE=10000
 export SAVEHIST=10000
 setopt appendhistory
+compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
 
 # Library Path
 export PATH="$HOME/.local/bin:$PATH"
@@ -46,9 +50,6 @@ export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 
 # PostgreSQL
 export PSQL_HISTORY="$XDG_DATA_HOME/psql_history"
-
-# sheldon
-eval "$(sheldon source)"
 
 # starship
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
@@ -134,9 +135,6 @@ bindkey '^[[1;3C' forward-word   # alt-right
 export PATH="/opt/homebrew/opt/libiconv/bin:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/libiconv/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/libiconv/include"
-
-# uv
-source $HOME/.cargo/env
 
 # spicetify
 export PATH=$PATH:$HOME/.spicetify
