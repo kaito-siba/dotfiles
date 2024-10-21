@@ -146,6 +146,16 @@ export EDITOR=zed
 export PATH=$PATH:$XDG_DATA_HOME/mise/installs/rust/latest/bin/fx
 source <(command fx --init)
 
+# yazi
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
 # zoxide
 # For completions to work, the above line must be added after compinit is called. You may have to rebuild your completions cache by running rm ~/.zcompdump*; compinit.
 eval "$(zoxide init zsh)"
