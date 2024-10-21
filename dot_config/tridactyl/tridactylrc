@@ -6,8 +6,8 @@ set hintchars jfkdhglsamvurceixwozqp
 set smoothscroll true
 set findcase smart
 
-colors dracura
-set theme dracura
+colors catppuccin-latte
+set theme catppuccin-latte
 
 # https://github.com/tridactyl/tridactyl/blob/1.24.0/src/lib/config.ts
 bind I mode ignore
