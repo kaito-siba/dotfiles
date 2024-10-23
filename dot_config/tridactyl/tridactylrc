@@ -27,4 +27,7 @@ bind n findnext 1
 bind N findnext -1
 bind ,<Space> nohlsearch
 
+command getrepoandprcode js -r js/getRepoAndPRCode.js
+bind yp getrepoandprcode
+
 js alert('tri ok')
