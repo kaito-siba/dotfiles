@@ -9,10 +9,27 @@ gui:
   showIcons: true
   sidePanelWidth: 0.3
   theme:
+    activeBorderColor:
+      - "#8839ef"
+      - bold
+    inactiveBorderColor:
+      - "#6c6f85"
+    optionsTextColor:
+      - "#1e66f5"
     selectedLineBgColor:
-      - underline
-    selectedRangeBgColor:
-      - underline
+      - "#ccd0da"
+    cherryPickedCommitBgColor:
+      - "#bcc0cc"
+    cherryPickedCommitFgColor:
+      - "#8839ef"
+    unstagedChangesColor:
+      - "#d20f39"
+    defaultFgColor:
+      - "#4c4f69"
+    searchingActiveBorderColor:
+      - "#df8e1d"
+  authorColors:
+    "*": "#7287fd"
 refresher:
   refreshInterval: 3
 os:
