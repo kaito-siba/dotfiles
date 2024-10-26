@@ -17,13 +17,15 @@ POPUP_CLICK_SCRIPT="sketchybar --set \$NAME popup.drawing=toggle"
 ACTIVE_SPACE=$(aerospace list-workspaces --focused)
 SPACE_ICONS=("$GHOST" "$GHOST" "$GHOST" "$GHOST" "$GHOST" "$GHOST" "$GHOST" "$GHOST")
 
+# Color definitions
+
 bar=(
   height=30
   margin=5
   corner_radius=10
   position=top
-  color="$TRANSPARENT"
-  border_color="$PURPLE"
+  color=$TRANSPARENT
+  border_color=$LAVENDER
   y_offset=4
   sticky=off
 )
@@ -34,14 +36,14 @@ defaults=(
   updates=when_shown
   icon.drawing=on
   icon.font="SF Pro:Regular:12.0"
-  icon.color=$WHITE
+  icon.color=$TEXT
   label.font="SF Pro:Regular:12.0"
   label.drawing=on
-  label.color=$WHITE
-  popup.background.color=$BLUE
+  label.color=$TEXT
+  popup.background.color=$BASE
   popup.background.corner_radius=10
   popup.background.border_width=3
-  popup.background.border_color=$PURPLE
+  popup.background.border_color=$LAVENDER
   popup.blur_radius=100
 )
 
@@ -55,11 +57,11 @@ time=(
   label.padding_left=20
   label.padding_right=15
   background.corner_radius=10
-  background.color=$TEMPUS
+  background.color=$OVERLAY0
   background.height=19
   background.padding_left=-10
   background.padding_right=3
-  background.border_color=$PURPLE
+  background.border_color=$LAVENDER
 )
 
 sketchybar --add item time right \
@@ -71,7 +73,7 @@ date=(
   script="$PLUGIN_DIR/date.sh"
   click_script="$POPUP_CLICK_SCRIPT"
   label.padding_left=15
-  background.color=$TEMPUS
+  background.color=$OVERLAY0
   background.height=19
   background.corner_radius=10
 )
@@ -110,21 +112,21 @@ volume=(
   updates=on
   label.drawing=off
   icon.drawing=off
-  slider.highlight_color=$PURPLE
+  slider.highlight_color=$LAVENDER
   slider.background.height=5
   slider.background.corner_radius=3
-  slider.background.color=$GREY
+  slider.background.color=$OVERLAY1
   slider.knob=$DOT
   slider.knob.drawing=off
   slider.padding_left=15
   slider.padding_right=15
   label.padding_right=10
   label.padding_left=10
-  background.color=$STATUS
+  background.color=$SURFACE0
   background.height=10
   background.corner_radius=10
   background.border_width=2
-  background.border_color=$PURPLE
+  background.border_color=$LAVENDER
   background.padding_right=7
 )
 
@@ -142,22 +144,6 @@ volume_icon=(
 sketchybar --add item volume_icon right \
   --set volume_icon "${volume_icon[@]!}"
 
-restart=(
-  background.color=$MIDNIGHT
-  background.height=25
-  background.corner_radius=10
-  background.padding_right=10
-  background.border_color=$PURPLE
-  background.border_width=3
-  icon=$RESTART
-  icon.padding_left=15
-  icon.padding_right=15
-  update_freq=60
-)
-
-sketchybar --add item restart right \
-  --set restart "${restart[@]!}"
-
 spotify=(
   click_script="$POPUP_CLICK_SCRIPT"
   popup.horizontal=on
@@ -166,7 +152,7 @@ spotify=(
   icon=$SPOTIFY
   icon.padding_right=15
   icon.padding_left=15
-  background.color=$TEMPUS
+  background.color=$OVERLAY0
   background.height=19
   background.corner_radius=10
   background.padding_left=3
@@ -205,11 +191,11 @@ ram=(
   label.padding_left=10
   update_freq=60
   background.corner_radius=10
-  background.color=$TEMPUS
+  background.color=$OVERLAY0
   background.height=19
   background.padding_left=-6
   background.padding_right=3
-  background.border_color=$PURPLE
+  background.border_color=$LAVENDER
 )
 
 sketchybar --add item ram q \
@@ -233,7 +219,7 @@ apple=(
   label=$APPLE
   label.padding_right=15
   label.padding_left=15
-  background.color=$TEMPUS
+  background.color=$OVERLAY0
   background.height=19
   background.corner_radius=10
   background.padding_left=3
@@ -252,7 +238,7 @@ space=(
 )
 
 space_bg=(
-  background.color=$SPACEBG
+  background.color=$SURFACE1
   background.height=19
   background.corner_radius=50
 )
@@ -283,10 +269,10 @@ done
 current_space=(
   icon.padding_left=15
   icon.padding_right=15
-  background.color=$MIDNIGHT
+  background.color=$MANTLE
   background.height=25
   background.corner_radius=10
-  background.border_color=$PURPLE
+  background.border_color=$LAVENDER
   background.border_width=3
   background.padding_left=10
   click_script="$PLUGIN_DIR/sort.sh"
@@ -296,10 +282,10 @@ sketchybar --add item current_space left \
   --set current_space "${current_space[@]!}"
 
 brackets=(
-  background.color=$STATUS
+  background.color=$SURFACE0
   background.height=25
   background.corner_radius=10
-  background.border_color=$PURPLE
+  background.border_color=$LAVENDER
   background.border_width=3
 )
 
