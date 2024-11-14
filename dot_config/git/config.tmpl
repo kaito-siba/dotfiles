@@ -4,9 +4,6 @@
 	email = kaito@siba-service.jp
 {{- end }}
 
-[ghq]
-  root = ~/src
-
 [include]
   path = ~/.config/delta/themes/catppuccin.gitconfig
 
@@ -15,3 +12,15 @@
   line-numbers = true
   side-by-side = true
 
+[url "git@github.com:"]
+    insteadOf = https://github.com/
+
+[ghq]
+    user = kaito-siba
+    root = ~/src/hobby
+
+[ghq "https://github.com/sibaservice"]
+    root = ~/src/work
+
+[ghq "https://siba.backlog.jp"]
+    root = ~/src/work
