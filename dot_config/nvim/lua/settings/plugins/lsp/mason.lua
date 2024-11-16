@@ -31,7 +31,7 @@ return {
 				"emmet_ls",
 				"prismals",
 				"pyright",
-				"phpactor",
+				"intelephense",
 				"denols",
 			},
 		})
