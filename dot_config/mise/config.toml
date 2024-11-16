@@ -5,6 +5,7 @@ ruff = "latest"
 ripgrep = "latest"
 pipx = "latest"
 rust = "latest"
+uv = "latest"
 
 [settings]
 experimental = true
