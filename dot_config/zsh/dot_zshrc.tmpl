@@ -66,6 +66,8 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
 
 # zeno
 export ZENO_HOME=~/.config/zeno
+export ZENO_GIT_CAT="bat --color=always"
+export ZENO_GIT_TREE="exa --tree"
 if [[ -n $ZENO_LOADED ]]; then
   bindkey ' '  zeno-auto-snippet
   bindkey '^m' zeno-auto-snippet-and-accept-line
@@ -163,6 +165,14 @@ alias lq="lazysql"
 # atac
 export ATAC_KEY_BINDINGS=$XDG_CONFIG_HOME/atac/key_bindings.toml
 export ATAC_THEME=$XDG_CONFIG_HOME/atac/theme.toml
+
+# fzf
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#ccd0da,spinner:#dc8a78,hl:#d20f39 \
+--color=fg:#4c4f69,header:#d20f39,info:#8839ef,pointer:#dc8a78 \
+--color=marker:#7287fd,fg+:#4c4f69,prompt:#8839ef,hl+:#d20f39 \
+--color=selected-bg:#bcc0cc \
+--multi"
 
 # zoxide
 # For completions to work, the above line must be added after compinit is called. You may have to rebuild your completions cache by running rm ~/.zcompdump*; compinit.
