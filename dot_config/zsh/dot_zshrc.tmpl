@@ -7,6 +7,7 @@ export HISTSIZE=10000
 export SAVEHIST=10000
 setopt appendhistory
 compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
+fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 # Library Path
 export PATH="$HOME/.local/bin:$PATH"
