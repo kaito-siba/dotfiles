@@ -224,3 +224,8 @@ run = 'move-node-to-workspace O'
 [[on-window-detected]]
 if.app-id = 'notion.id'
 run = 'move-node-to-workspace N'
+
+[[on-window-detected]]
+if.app-id = 'org.mozilla.firefox'
+if.window-title-regex-substring = 'ピクチャーインピクチャー'
+run = 'layout floating'
