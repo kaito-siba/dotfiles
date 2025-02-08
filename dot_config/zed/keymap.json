@@ -84,7 +84,7 @@
     "bindings": {
       "ctrl-j": "editor::ContextMenuNext",
       "ctrl-k": "editor::ContextMenuPrev",
-      "ctrl-l": ["workspace.SendKeystrokes", "Enter"]
+      "ctrl-l": ["workspace::SendKeystrokes", "Enter"]
     }
   },
   {
@@ -99,10 +99,12 @@
     "context": "Editor && vim_mode == normal && !VimWaiting && !Menu",
     "bindings": {
       "space h r": "editor::RevertSelectedHunks",
-      "space h t": "editor::ToggleHunkDiff",
+      "space h t": "editor::ToggleSelectedDiffHunks",
       "space h T": "editor::ExpandAllHunkDiffs",
       "space h n": "editor::GoToHunk",
-      "space h N": "editor::GoToPrevHunk"
+      "space h N": "editor::GoToPrevHunk",
+      "s": ["vim::PushOperator", { "Sneak": {} }],
+      "S": ["vim::PushOperator", { "SneakBackward": {} }]
     }
   },
   {

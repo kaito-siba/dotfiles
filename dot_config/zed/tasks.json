@@ -46,7 +46,14 @@
     "args": [],
     "env": {},
     "use_new_terminal": true,
-    "allow_concurrent_runs": false
+    "allow_concurrent_runs": false,
+    "hide": "on_success",
+    "shell": {
+      "with_arguments": {
+        "program": "/bin/bash",
+        "args": ["--login"]
+      }
+    }
   },
   {
     "label": "search:project",
@@ -56,6 +63,12 @@
     "allow_concurrent_runs": false,
     "use_new_terminal": false,
     "reveal": "always",
-    "hide": "on_success"
+    "hide": "on_success",
+    "shell": {
+      "with_arguments": {
+        "program": "/bin/bash",
+        "args": ["--login"]
+      }
+    }
   }
 ]

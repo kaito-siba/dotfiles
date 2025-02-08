@@ -7,6 +7,13 @@
 // custom settings, run `zed: open default settings` from the
 // command palette
 {
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
+  "icon_theme": "Catppuccin Latte",
+  "auto_update_extensions": {
+    "catppuccin-blur": false
+  },
   "ssh_connections": [
     {
       "host": "Macbook-Air",
@@ -19,8 +26,8 @@
   ],
   "assistant": {
     "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-3-5-sonnet-latest"
+      "provider": "copilot_chat",
+      "model": "claude-3-5-sonnet"
     },
     "version": "2",
     "button": false
@@ -31,7 +38,7 @@
   },
   "vim_mode": true,
   "ui_font_size": 13,
-  "buffer_font_size": 13,
+  "buffer_font_size": 13.0,
   "relative_line_numbers": true,
   "show_whitespaces": "boundary",
   "scrollbar": {
@@ -70,11 +77,7 @@
   "toolbar": {
     "quick_actions": false
   },
-  "formatter": {
-    "language_server": {
-      "name": "biome"
-    }
-  },
+  "formatter": "prettier",
   "lsp": {
     "biome": {
       "settings": {
