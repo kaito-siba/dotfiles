@@ -1,11 +1,13 @@
 [tools]
-node = "21.4.0"
+node = "22.13.1"
 python = "latest"
 ruff = "latest"
 ripgrep = "latest"
 pipx = "latest"
 rust = "latest"
 uv = "latest"
+aws-sam = "latest"
+aws = "latest"
 
 [settings]
 experimental = true
